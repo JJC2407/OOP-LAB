@@ -4,38 +4,61 @@
  * and open the template in the editor.
  */
 package employee;
+import java.util.Scanner;
 
-/**
- *
- * @author sjcet
- */
 public class Employee {
-    int id;
-    String name;
-    float sal;
+	int eno;
+	String ename;
+	double esalary;
+	void getdata()
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("enter id ");
+		eno=sc.nextInt();
+		System.out.println("enter name");
+		ename=sc.next();
+		System.out.println("enter salary");
+		esalary=sc.nextDouble();
+	}
+	void display()
+	{
+		System.out.println("employee id is : "+ eno);
+		System.out.println("employee name is : "+ ename);
+		System.out.println("employee salary is : "+ esalary);
+	}
+	
 
-    Employee(int a,String b,float c) {
-        id=a;
-        name=b;
-        sal=c;   
-    }
-    public void disp()
-    {
-        System.out.println("ID = "+id);
-        System.out.println("Name = "+name);
-        float s=(sal)+(sal*20)/100;
-        System.out.println("Salary = "+s);
-    }
+	public static void main(String[] args) {
+		Scanner sc1=new Scanner(System.in);
+		int i,n,c,f=0;
+		System.out.println("enter the number of employees");
+		n=sc1.nextInt();
+		Employee e[]=new Employee[n];
+		for(i=0;i<n;i++) {
+                    System.out.println("\nEnter the detials of employee-"+i+1+"\n");
+			e[i]=new Employee();
+			e[i].getdata();
+		}
+		System.out.println("Employee details are :\n");
+		for(i=0;i<n;i++) {
+                    System.out.println("\n Employee - "+i+1+"\n");
+			e[i].display();
+		}
+		System.out.println("\nEnter the id to be search");
+		c=sc1.nextInt();
+	for(i=0;i<n;i++) {
+		if(c==e[i].eno) {
+			f=1;
+			break;
+		}
+	}
+	if(f==1) {
+		System.out.println("\nDetails of employee is ");
+		e[i].display();
+	}
+	else
+		System.out.println("\n Not found");	
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Employee e=new Employee(100,"abc",2000);
-        e.disp();
-        Employee e1=new Employee(101,"xyz",3000);
-        e1.disp();
-        // TODO code application logic here
-    }
-    
+	}
 }
