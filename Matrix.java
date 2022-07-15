@@ -1,83 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package matrix;
 
-/**
- *
- * @author sjcet
- */
 import java.util.Scanner;
-public class Matrix {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        int i,j,m,n,p,q;
-        Scanner s=new Scanner(System.in)
-        System.out.println(" Martrix-1\n-----------");
-        System.out.println("Enter the no.of rows and coloumn : ");
-        m=s.nextInt();
-        n=s.nextInt();
-        System.out.println(" Martrix-2\n-----------");
-        System.out.println("Enter the no.of rows and coloumn : ");
-        p=s.nextInt();
-        q=s.nextInt();
-        if(m==p && n==q)
+public class Matrix
+{
+    public static void main(String[] args)
+    {
+    int p,q,m,n,i,j;
+    Scanner sc=new Scanner(System.in);
+    System.out.println("enter the rows and coloums of 1st matrix:");
+    m=sc.nextInt();
+    n=sc.nextInt();
+    int M1[][]=new int[m][n];
+    int Sum[][]=new int[m][n];
+    System.out.println("enter the elements of 1st matrix:");
+    for(i=0 ;i<m; i++)
+    {
+        for(j=0; j<n; j++)
         {
-            int a[][]=new int[m][n];
-            int b[][]=new int[p][q];
-            System.out.println("Enter the elments matrix-1");
-            for(i=0;i<m;i++)
-            {
-                for(j=0;j<n;j++)
-                {
-                    a[i][j]=s.nextInt();
-                }
+            M1[i][j]=sc.nextInt();
             }
-            System.out.println("Enter the elments matrix-2");
-            for(i=0;i<m;i++)
-            {
-                for(j=0;j<n;j++)
-                {
-                    b[i][j]=s.nextInt();
-                }
-            }
-            System.out.println("\n Matrix-1 \n-----------");
-            for(i=0;i<m;i++)
-            {
-                for(j=0;j<n;j++)
-                {
-                    System.out.print(a[i][j]+"\t");
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n Matrix-2 \n-----------");
-            for(i=0;i<m;i++)
-            {
-                for(j=0;j<n;j++)
-                {
-                    System.out.print(b[i][j]+"\t");
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n Matrix-1 + Matrix-2\n---------------------");
-            for(i=0;i<m;i++)
-            {
-                for(j=0;j<n;j++)
-                {
-                    System.out.print(a[i][j]+b[i][j]+"\t");
-                }
-                System.out.println("\n");
-            }
-        }
-        
-        
-        
-        // TODO code application logic here
     }
-    
+    System.out.println("enter the rows and coloums of 2nd matrix:");
+    p=sc.nextInt();
+    q=sc.nextInt();
+    int M2[][]=new int[p][q];
+    System.out.println("enter the elements of 2nd matrix:");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            M2[i][j]=sc.nextInt();
+            
+        }
+    }
+    if(m==p)
+    {
+        for(i=0; i<m; i++)
+        {
+            for(j=0; j<n; j++)
+            {
+               Sum[i][j]=M1[i][j]+M2[i][j];
+    }
+        }
+        System.out.println("the sum of matrices are:");
+        for(i=0; i<n; i++)
+        {
+            for(j=0; j<n; j++)
+            {
+                System.out.print("\t"+Sum[i][j]);
+            }
+            System.out.println();
+        }
+            
+            
+            }
+    else
+    {
+        System.out.println("Matrix Addition is not possible");
+    }
+       
+}
 }
